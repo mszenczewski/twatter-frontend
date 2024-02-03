@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 
-import HomeScreen from './components/HomeScreen'
-
-import RegisterScreen from './components/RegisterScreen'
-import VerifyScreen from './components/VerifyScreen'
-import LoginScreen from './components/LoginScreen'
-import TweetScreen from './components/TweetScreen'
-import UserScreen from './components/UserScreen'
-import ItemScreen from './components/ItemScreen'
-import SearchScreen from './components/SearchScreen'
-import FollowScreen from './components/FollowScreen'
-import LogoutScreen from './components/LogoutScreen'
+import HomeScreen from './components/HomeScreen';
+import RegisterScreen from './components/RegisterScreen';
+import VerifyScreen from './components/VerifyScreen';
+import LoginScreen from './components/LoginScreen';
+import TweetScreen from './components/TweetScreen';
+import UserScreen from './components/UserScreen';
+import ItemScreen from './components/ItemScreen';
+import SearchScreen from './components/SearchScreen';
+import FollowScreen from './components/FollowScreen';
+import LogoutScreen from './components/LogoutScreen';
 
 export default class App extends Component {
   render() {
