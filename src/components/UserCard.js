@@ -32,7 +32,7 @@ export default class UserCard extends Component {
       });
   
       axios
-      .get(`http://gaillardia.cse356.compas.cs.stonybrook.edu/user/${this.props.username}/posts`)
+      .get(`http://${SERVER_URL}/user/${this.props.username}/posts`)
       .then(res => {
         console.log('USERCARD RESPONSE B: ' + JSON.stringify(res.data, null, 2));
 
@@ -50,7 +50,7 @@ export default class UserCard extends Component {
       });
 
       axios
-      .get(`http://gaillardia.cse356.compas.cs.stonybrook.edu/user/${this.props.username}/followers`)
+      .get(`http://${SERVER_URL}/user/${this.props.username}/followers`)
       .then(res => {
         console.log('USERCARD RESPONSE C: ' + JSON.stringify(res.data, null, 2));
 
@@ -68,7 +68,7 @@ export default class UserCard extends Component {
       });
 
       axios
-      .get(`http://gaillardia.cse356.compas.cs.stonybrook.edu/user/${this.props.username}/following`)
+      .get(`http://${SERVER_URL}/user/${this.props.username}/following`)
       .then(res => {
         console.log('USERCARD RESPONSE D: ' + JSON.stringify(res.data, null, 2));
 
