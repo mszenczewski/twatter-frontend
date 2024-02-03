@@ -37,8 +37,8 @@ export default class UserCard extends Component {
         console.log('USERCARD RESPONSE B: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          var s = '';
-          for (var i = 0; i < res.data.items.length; i++) {
+          let s = '';
+          for (let i = 0; i < res.data.items.length; i++) {
             s += res.data.items[i];
             s += ' ';
           }
@@ -55,8 +55,8 @@ export default class UserCard extends Component {
         console.log('USERCARD RESPONSE C: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          var s = '';
-          for (var i = 0; i < res.data.users.length; i++) {
+          let s = '';
+          for (let i = 0; i < res.data.users.length; i++) {
             s += res.data.users[i];
             s += ' ';
           }
@@ -73,8 +73,8 @@ export default class UserCard extends Component {
         console.log('USERCARD RESPONSE D: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          var s = '';
-          for (var i = 0; i < res.data.users.length; i++) {
+          let s = '';
+          for (let i = 0; i < res.data.users.length; i++) {
             s += res.data.users[i];
             s += ' ';
           }

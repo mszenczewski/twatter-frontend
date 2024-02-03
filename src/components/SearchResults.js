@@ -6,8 +6,8 @@ export default class SearchResults extends Component {
   }
 
   componentDidMount() {
-    var s = '';
-    for(var i = 0; i < this.props.items.length; i++) {
+    let s = '';
+    for(let i = 0; i < this.props.items.length; i++) {
       s += this.props.items[i].username + ': ' + this.props.items[i].content + '\n'; 
     }
     this.setState({display: s});
