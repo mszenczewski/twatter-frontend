@@ -20,31 +20,19 @@ export default class ItemCard extends Component {
         console.log('ITEMCARD ERROR: ' + err);
         this.setState({response: err.response.data.error});
       });
-  };  
+  };
 
-  unlike = e => {
+  setlike = (e, is_liked) => {
     e.preventDefault();
-    this.send_post(false);
-  }; 
+    this.send_post(is_liked).then();
+  };
 
-  like = e => {
-    e.preventDefault();
-    this.send_post(true);
-  };  
-
-  send_post = async (t) => {
+  send_post = async (is_liked) => {
     try {
-      const res = await Axios.post(`${SERVER_URL}/item/${this.props.item.id}/like`, {like: t});
+      const res = await Axios.post(`${SERVER_URL}/item/${this.props.item.id}/like`, {like: is_liked});
       console.log('LIKE RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
-      var msg;
-      if (t) {
-        msg = 'liked';
-      } else {
-        msg = 'unliked';
-      }
-
-      if (res.data.status === 'OK') this.props.set_response(`Successfully ${msg} tweet!`);
+      const msg = `Successfully ${is_liked ? 'liked' : 'unliked'} tweet!`;
+      if (res.data.status === 'OK') this.props.set_response(msg);
     } catch (err) {
       console.log('LIKE ERROR: ' + err);
       this.props.set_response(err.response.data.error);
@@ -56,9 +44,9 @@ export default class ItemCard extends Component {
       <div className="content_card">  
         <h3>{this.props.item.content}</h3>
         <h4>{this.props.item.username}</h4>
-        <div className="tweet_button_container">          
-          <button onClick={this.like}>Like</button>
-          <button onClick={this.unlike}>Unlike</button>
+        <div className="tweet_button_container">
+          <button onClick={(e) => this.setlike(e, true)}>Like</button>
+          <button onClick={(e) => this.setlike(e, false)}>Unlike</button>
           <button className="tweet_button" onClick={this.delete}>Delete</button>
         </div>
         <h3>{this.state.response}</h3>
