@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import UserCard from './UserCard'
+import {SERVER_URL} from "../server_url";
 
 export default class UserScreen extends Component {
   state = {
@@ -30,7 +31,7 @@ export default class UserScreen extends Component {
     }
 
     axios
-      .get("http://gaillardia.cse356.compas.cs.stonybrook.edu/user/" + this.state.username)
+      .get(`${SERVER_URL}/user/${this.state.username}`)
       .then(res => {
         console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
         this.hide_card();

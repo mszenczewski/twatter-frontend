@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-
 import ItemCard from './ItemCard'
+import {SERVER_URL} from "../server_url";
 
 export default class ItemScreen extends Component {
   state = {
@@ -44,7 +44,7 @@ export default class ItemScreen extends Component {
     }
 
     try {
-      const res = await Axios.get(`http://gaillardia.cse356.compas.cs.stonybrook.edu/item/${this.state.id}`);
+      const res = await Axios.get(`${SERVER_URL}/item/${this.state.id}`);
       console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
       this.hide_card();
       if (res.data.status === 'OK') {

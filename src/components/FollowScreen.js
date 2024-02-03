@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import {SERVER_URL} from "../server_url";
 
 export default class FollowScreen extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class FollowScreen extends Component {
     };
 
     try {
-      const res = await Axios.post('http://gaillardia.cse356.compas.cs.stonybrook.edu/follow', json);
+      const res = await Axios.post(`${SERVER_URL}/follow`, json);
       console.log('FOLLOW RESPONSE: ' + JSON.stringify(res.data, null, 2));
       if (res.data.status === 'OK') {
         if (json.follow === true) this.setState({response: 'Succesfully followed ' + json.username + '!'});

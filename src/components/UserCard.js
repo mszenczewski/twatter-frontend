@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {SERVER_URL} from "../server_url";
 
 export default class UserCard extends Component {
   state = {
@@ -16,7 +17,7 @@ export default class UserCard extends Component {
   componentDidMount() {
     this.setState({username: this.props.username});
     axios
-      .get(`http://gaillardia.cse356.compas.cs.stonybrook.edu/user/${this.props.username}`)
+      .get(`${SERVER_URL}/user/${this.props.username}`)
       .then(res => {
         console.log('USERCARD RESPONSE A: ' + JSON.stringify(res.data, null, 2));
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import axios from 'axios';
 import SearchResults from './SearchResults';
+import {SERVER_URL} from "../server_url";
 
 export default class SearchScreen extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ export default class SearchScreen extends Component {
     if (this.state.username !== '') json.username = this.state.username;
     
     axios
-      .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/search", json)
+      .post(`${SERVER_URL}/search`, json)
       .then(res => {
         console.log('SEARCH RESPONSE: ' + JSON.stringify(res.data, null, 2));
 
