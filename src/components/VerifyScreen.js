@@ -20,7 +20,7 @@ export default class VerifyScreen extends Component {
     try {
       const res = await Axios.post(`${SERVER_URL}/verify`, json);
       console.log('VERIFY RESPONSE: ' + JSON.stringify(res.data, null, 2));
-      if (res.data.status === 'OK') this.setState({response: 'Succesfully verified email!'});
+      if (res.data.status === 'OK') this.setState({response: 'Successfully verified email!'});
     } catch (err) {
       console.log('VERIFY ERROR: ' + err);
       this.setState({response: err.response.data.error});

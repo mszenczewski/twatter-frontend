@@ -24,8 +24,8 @@ export default class FollowScreen extends Component {
       const res = await Axios.post(`${SERVER_URL}/follow`, json);
       console.log('FOLLOW RESPONSE: ' + JSON.stringify(res.data, null, 2));
       if (res.data.status === 'OK') {
-        if (json.follow === true) this.setState({response: 'Succesfully followed ' + json.username + '!'});
-        if (json.follow === false) this.setState({response: 'Succesfully unfollowed ' + json.username + '!'})
+        if (json.follow === true) this.setState({response: 'Successfully followed ' + json.username + '!'});
+        if (json.follow === false) this.setState({response: 'Successfully unfollowed ' + json.username + '!'})
       }
     } catch (err) {
       console.log('FOLLOW ERROR: ' + err);

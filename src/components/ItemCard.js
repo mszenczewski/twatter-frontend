@@ -44,7 +44,7 @@ export default class ItemCard extends Component {
         msg = 'unliked';
       }
 
-      if (res.data.status === 'OK') this.props.set_response(`Succesfully ${msg} tweet!`);
+      if (res.data.status === 'OK') this.props.set_response(`Successfully ${msg} tweet!`);
     } catch (err) {
       console.log('LIKE ERROR: ' + err);
       this.props.set_response(err.response.data.error);

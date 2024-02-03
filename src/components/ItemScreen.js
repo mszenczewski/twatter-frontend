@@ -31,7 +31,7 @@ export default class ItemScreen extends Component {
 
   delete_done = () => {
     this.hide_card();
-    this.setState({response: 'Tweet succesfully deleted!'});    
+    this.setState({response: 'Tweet successfully deleted!'});
   }
 
   submit = async e => {

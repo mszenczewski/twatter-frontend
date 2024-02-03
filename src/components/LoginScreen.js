@@ -20,7 +20,7 @@ export default class LoginScreen extends Component {
     try {
       const res = await Axios.post(`${SERVER_URL}/login`, json);
       console.log('LOGIN RESPONSE: ' + JSON.stringify(res.data, null, 2));
-      if (res.data.status === 'OK') this.setState({response: 'Succesfully logged in!'});
+      if (res.data.status === 'OK') this.setState({response: 'Successfully logged in!'});
     } catch (err) {
       console.log('LOGIN ERROR: ' + err);
       this.setState({response: err.response.data.error});
