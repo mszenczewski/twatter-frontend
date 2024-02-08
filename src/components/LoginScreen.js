@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import {SERVER_URL} from "../server_url";
 
 export default class LoginScreen extends Component {
   state = {
@@ -18,7 +17,7 @@ export default class LoginScreen extends Component {
     const json = {username: this.state.username, password: this.state.password};
 
     try {
-      const res = await Axios.post(`${SERVER_URL}/login`, json);
+      const res = await Axios.post('/login', json);
       console.log('LOGIN RESPONSE: ' + JSON.stringify(res.data, null, 2));
       if (res.data.status === 'OK') this.setState({response: 'Successfully logged in!'});
     } catch (err) {

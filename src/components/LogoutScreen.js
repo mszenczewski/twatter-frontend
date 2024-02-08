@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {SERVER_URL} from "../server_url";
 
 export default class LogoutScreen extends Component {
   state = {
@@ -11,7 +10,7 @@ export default class LogoutScreen extends Component {
     e.preventDefault();
 
     axios
-      .post(`${SERVER_URL}/logout`)
+      .post('/logout')
       .then(res => {
         console.log('LOGOUT RESPONSE: ' + JSON.stringify(res.data, null, 2));
 

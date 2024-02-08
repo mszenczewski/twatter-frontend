@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import {SERVER_URL} from "../server_url";
 
 export default class RegisterScreen extends Component {
   state = {
@@ -24,7 +23,7 @@ export default class RegisterScreen extends Component {
     };
 
     try {
-      const res = await Axios.post(`${SERVER_URL}/adduser`, json);
+      const res = await Axios.post('/adduser', json);
       console.log('ADDUSER RESPONSE: ' + JSON.stringify(res.data, null, 2));
       if (res.data.status === 'OK') this.setState({response: 'Successfully added user!'});
     } catch (err) {

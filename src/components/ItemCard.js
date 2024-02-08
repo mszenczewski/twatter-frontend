@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import {SERVER_URL} from "../server_url";
 
 export default class ItemCard extends Component {
   state = {
@@ -11,7 +10,7 @@ export default class ItemCard extends Component {
     e.preventDefault();
 
     Axios
-      .delete(`${SERVER_URL}/item/` + this.props.item.id)
+      .delete('/item/' + this.props.item.id)
       .then(res => {
         console.log('ITEMCARD RESPONSE: ' + JSON.stringify(res.data, null, 2));
         this.props.delete_done();
@@ -29,7 +28,7 @@ export default class ItemCard extends Component {
 
   send_post = async (is_liked) => {
     try {
-      const res = await Axios.post(`${SERVER_URL}/item/${this.props.item.id}/like`, {like: is_liked});
+      const res = await Axios.post(`/item/${this.props.item.id}/like`, {like: is_liked});
       console.log('LIKE RESPONSE: ' + JSON.stringify(res.data, null, 2));
       const msg = `Successfully ${is_liked ? 'liked' : 'unliked'} tweet!`;
       if (res.data.status === 'OK') this.props.set_response(msg);

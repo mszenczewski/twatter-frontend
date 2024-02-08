@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import {SERVER_URL} from "../server_url";
 
 export default class TweetScreen extends Component {
   state = {
@@ -18,7 +17,7 @@ export default class TweetScreen extends Component {
     };
 
     try {
-      const res = await Axios.post(`${SERVER_URL}/additem`, json);
+      const res = await Axios.post('/additem', json);
       console.log('ADDITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
       if (res.data.status === 'OK') this.setState({response: 'Successfully added item! ID: ' + res.data.id});
     } catch (err) {
